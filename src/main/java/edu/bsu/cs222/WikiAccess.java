@@ -1,15 +1,11 @@
 package edu.bsu.cs222;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URLConnection;
 import java.net.URL;
 import java.net.ConnectException;
-import java.net.MalformedURLException;
-import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.io.IOException;
-import java.io.InputStream;
 
 //Create URL class is team B's work
 public class WikiAccess {
@@ -20,15 +16,15 @@ public class WikiAccess {
         return fullUrl;
     }
     //URL reader is a mesh between original Wikipedia Revision Reader class and team B's read class
-    public String readFromUrl(String url) throws IOException {
+    public String getlatestRevisionOf(String url) throws IOException {
         URL search  = new URL(url);
         URLConnection connection = search.openConnection();
         connection.setRequestProperty("User-agent", "WikipediaProject/0.1 (dcdavis@bsu.edu)");
         try {
             connection.connect();
         }
-        catch (ConnectException | UnknownHostException  connectionException) {
-            System.err.println("Network error");
+        catch (ConnectException | EOFException | UnknownHostException connectionException) {
+            System.err.println("Network connection problem: ");
             System.exit(3);
         }
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
