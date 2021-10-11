@@ -1,3 +1,4 @@
+
 package edu.bsu.cs222;
 
 import java.io.InputStream;
@@ -25,7 +26,7 @@ public class WikipediaRevisionReader {
     }
 
         private String getLatestRevisionOf(String articleTitle) throws IOException {
-            String urlString = String.format("https://en.wikipedia.org/wiki/Doughnut", articleTitle);
+            String urlString = String.format("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=%s&rvprop=timestamp&rvlimit=1", articleTitle);
             String encoderUrlString = URLEncoder.encode(urlString, Charset.defaultCharset());
 
             try {
@@ -34,8 +35,7 @@ public class WikipediaRevisionReader {
                 connection.setRequestProperty("User-Agent", "WikipediaRevision/0.1 (dcdavis@bsu.edu)");
                 InputStream inputStream = connection.getInputStream();
                 RevisionParser parser = new RevisionParser();
-                String timestamp = parser.parse(inputStream);
-                return timestamp;
+                return parser.parse(inputStream);
             } catch (MalformedURLException malformedURLException) {
                 throw new RuntimeException(malformedURLException);
             }

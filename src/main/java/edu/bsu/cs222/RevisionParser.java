@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 public class RevisionParser {
     public String parse(InputStream testDataStream) throws IOException {
-        JSONArray result = JsonPath.read(testDataStream, "$..timestamp");
+        JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
         return result.get(0).toString();
     }
 }

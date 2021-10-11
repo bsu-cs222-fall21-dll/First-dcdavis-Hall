@@ -1,10 +1,7 @@
 package edu.bsu.cs222;
 
 import java.io.*;
-import java.net.URLConnection;
-import java.net.URL;
-import java.net.ConnectException;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.io.IOException;
 
 //Create URL class is team B's work
@@ -15,8 +12,10 @@ public class WikiAccess {
         String fullUrl = urlStart + searchableArticle + urlEnd;
         return fullUrl;
     }
-    //URL reader is a mesh between original Wikipedia Revision Reader class and team B's read class
-    public String getlatestRevisionOf(String url) throws IOException {
+    //was planned to be a mesh between original
+    // Wikipedia Revision Reader class and team B's read class
+    // but an error had followed
+    private String readURL(String url) throws IOException {
         URL search  = new URL(url);
         URLConnection connection = search.openConnection();
         connection.setRequestProperty("User-agent", "WikipediaProject/0.1 (dcdavis@bsu.edu)");
