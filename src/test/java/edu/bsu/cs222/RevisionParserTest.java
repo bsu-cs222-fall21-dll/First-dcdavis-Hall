@@ -13,6 +13,6 @@ public class RevisionParserTest {
         RevisionParser parser = new RevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
         String timestamp = parser.parse(testDataStream);
-        Assertions.assertEquals("2021-09-26T12:19:35Z", timestamp);
+        Assertions.assertEquals("2021-09-19T01:09:23Z", timestamp);
     }
 }

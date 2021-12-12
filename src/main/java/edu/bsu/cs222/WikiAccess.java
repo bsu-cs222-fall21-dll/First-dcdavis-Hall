@@ -15,7 +15,7 @@ public class WikiAccess {
     //was planned to be a mesh between original
     // Wikipedia Revision Reader class and team B's read class
     // but an error had followed
-    private String readURL(String url) throws IOException {
+    public String readURL(String url) throws IOException {
         URL search  = new URL(url);
         URLConnection connection = search.openConnection();
         connection.setRequestProperty("User-agent", "WikipediaProject/0.1 (dcdavis@bsu.edu)");
