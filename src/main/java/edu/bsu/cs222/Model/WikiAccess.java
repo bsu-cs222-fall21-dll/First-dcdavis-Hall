@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.Model;
 
 import java.io.*;
 import java.net.*;
@@ -9,10 +9,9 @@ public class WikiAccess {
     public String createURL(String searchableArticle) {
         String urlStart = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&format=json&rvprop=timestamp%7Cuser&rvlimit=30&titles=";
         String urlEnd = "&redirects=";
-        String fullUrl = urlStart + searchableArticle + urlEnd;
-        return fullUrl;
+        return urlStart + searchableArticle + urlEnd;
     }
-    //was planned to be a mesh between original
+    // was planned to be a mesh between original
     // Wikipedia Revision Reader class and team B's read class
     // but an error had followed
     public String readURL(String url) throws IOException {
@@ -23,7 +22,7 @@ public class WikiAccess {
             connection.connect();
         }
         catch (ConnectException | EOFException | UnknownHostException connectionException) {
-            System.err.println("Network connection problem: ");
+            System.err.println("Network connection problem");
             System.exit(3);
         }
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));

@@ -1,4 +1,5 @@
 package edu.bsu.cs222;
+import edu.bsu.cs222.Model.WikiAccess;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

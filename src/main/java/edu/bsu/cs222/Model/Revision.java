@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.Model;
 
 public class Revision {
     String user;
@@ -8,7 +8,11 @@ public class Revision {
         this.user = user;
         this.timestamp = timestamp;
     }
-    public String getUser() { return user; }
-    public String getTimestamp() { return timestamp; }
+    public String getUser() {
+        return user;
+    }
+    public String getTimestamp() {
+        return timestamp;
+    }
 
 }

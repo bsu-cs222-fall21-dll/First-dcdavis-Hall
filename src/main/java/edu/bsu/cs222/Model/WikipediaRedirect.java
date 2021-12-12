@@ -1,8 +1,7 @@
-package edu.bsu.cs222;
+package edu.bsu.cs222.Model;
 
 import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
-
 import java.io.IOException;
 import java.io.InputStream;
 
